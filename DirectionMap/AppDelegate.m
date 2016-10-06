@@ -16,8 +16,9 @@
 @implementation AppDelegate
 @synthesize FromDirection,ToDirection,CheckStreetDirection;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [GMSServices provideAPIKey:@"AIzaSyBpemQXK7AKMV_VfZhDctVOLGckM3VWFrE"];
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [GMSServices provideAPIKey:@"Your Api Key"];
     return YES;
 }
 
