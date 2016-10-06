@@ -68,6 +68,8 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 
 {
+    SharedAppDelegate.FromDirection=@"";
+    SharedAppDelegate.ToDirection=@"";
     SharedAppDelegate.CheckStreetDirection=[NSString stringWithFormat:@"%@",CountryName];
     [self dismissViewControllerAnimated:YES completion:nil];
 
@@ -75,6 +77,8 @@
 
 -(void)DismissAction:(UIButton *)sender
 {
+    SharedAppDelegate.FromDirection=@"";
+    SharedAppDelegate.ToDirection=@"";
     SharedAppDelegate.CheckStreetDirection=[NSString stringWithFormat:@"%@",CountryName];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

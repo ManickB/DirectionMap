@@ -73,6 +73,8 @@
 }
 -(void)DismissAction:(UIButton *)sender
 {
+    SharedAppdelegate.FromDirection=@"";
+    SharedAppdelegate.ToDirection=@"";
     SharedAppdelegate.CheckStreetDirection=[NSString stringWithFormat:@"%@",AddressName];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
