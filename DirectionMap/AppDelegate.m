@@ -7,16 +7,17 @@
 //
 
 #import "AppDelegate.h"
+@import GoogleMaps;
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
+@synthesize FromDirection,ToDirection,CheckStreetDirection;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [GMSServices provideAPIKey:@"AIzaSyBpemQXK7AKMV_VfZhDctVOLGckM3VWFrE"];
     return YES;
 }
 

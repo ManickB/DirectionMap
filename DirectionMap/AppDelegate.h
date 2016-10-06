@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+{
+    NSString * FromDirection;
+    NSString * ToDirection;
+}
 @property (strong, nonatomic) UIWindow *window;
-
-
+@property (strong, nonatomic) NSString * FromDirection;
+@property (strong, nonatomic) NSString * ToDirection;
+@property (strong, nonatomic) NSString * CheckStreetDirection;
 @end
 

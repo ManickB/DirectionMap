@@ -23,5 +23,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationItem.hidesBackButton = YES;
+}
+
+- (IBAction)DirectionBUtt:(id)sender
+{
+    [self performSegueWithIdentifier:@"Direction" sender:self];
+}
 
 @end

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailViewCell" rowHeight="63" id="KGk-i7-Jjw" customClass="DetailViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vz-Gy-lWx">
+                        <rect key="frame" x="8" y="8" width="304" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="304" id="32U-cq-zzy"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="26" id="3ZA-TB-vYa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1j-Cb-0Cf">
+                        <rect key="frame" x="0.0" y="38" width="56" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="bcd-TS-Qoa"/>
+                            <constraint firstAttribute="width" constant="56" id="oeg-mS-9fV"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feH-fK-Abu">
+                        <rect key="frame" x="52" y="38" width="42" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="PXk-De-Gkq"/>
+                            <constraint firstAttribute="width" constant="42" id="vId-uh-c7r"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="feH-fK-Abu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="44" id="2fN-jH-awI"/>
+                    <constraint firstItem="2vz-Gy-lWx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="G4i-pf-smI"/>
+                    <constraint firstItem="e1j-Cb-0Cf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="KUh-TK-1Dg"/>
+                    <constraint firstItem="2vz-Gy-lWx" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Lrg-AQ-uXQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="e1j-Cb-0Cf" secondAttribute="trailing" constant="256" id="Sbg-tg-FGB"/>
+                    <constraint firstItem="2vz-Gy-lWx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Uyv-Yc-LLt"/>
+                    <constraint firstItem="feH-fK-Abu" firstAttribute="top" secondItem="2vz-Gy-lWx" secondAttribute="bottom" constant="4" id="Yxa-8L-gSR"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="feH-fK-Abu" secondAttribute="trailing" constant="218" id="eyu-rw-kdi"/>
+                    <constraint firstItem="feH-fK-Abu" firstAttribute="baseline" secondItem="e1j-Cb-0Cf" secondAttribute="baseline" id="feF-Gu-HsC"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="DistanceLab" destination="e1j-Cb-0Cf" id="hIz-wB-Lpn"/>
+                <outlet property="InstructionLab" destination="2vz-Gy-lWx" id="MLj-ae-DX9"/>
+            </connections>
+            <point key="canvasLocation" x="440" y="214.5"/>
+        </tableViewCell>
+    </objects>
+</document>

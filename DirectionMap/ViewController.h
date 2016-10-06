@@ -10,6 +10,6 @@
 
 @interface ViewController : UIViewController
 
-
+- (IBAction)DirectionBUtt:(id)sender;
 @end
 
