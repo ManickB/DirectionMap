@@ -29,7 +29,12 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [self performSelector:@selector(aftercall) withObject:nil afterDelay:0.0f];
+}
+-(void)aftercall
+{
     [StartButt setEnabled:NO];
     [CollectionControlView setHidden:YES];
     [InfoView setHidden:YES];
@@ -41,16 +46,16 @@
     detailsOutlet.layer.borderColor=[UIColor whiteColor].CGColor;
     detailsOutlet.layer.borderWidth=2.0f;
     detailsOutlet.layer.masksToBounds=YES;
-//    self.navigationController.navigationBar.hidden = NO;
+    //    self.navigationController.navigationBar.hidden = NO;
     if (SharedAppDelegate.FromDirection.length == 0)
     {
         if (SharedAppDelegate.CheckStreetDirection.length == 0)
         {
-         [self originalNavigation];
+            [self originalNavigation];
         }
-       else
+        else
         {
-         SharedAppDelegate.CheckStreetDirection=@"";
+            SharedAppDelegate.CheckStreetDirection=@"";
         }
     }
     else if (SharedAppDelegate.FromDirection.length != 0)
@@ -78,10 +83,11 @@
         [StartButt setTitle:@"Start" forState:UIControlStateNormal];
         [StartButt addTarget:self action:@selector(StartButt:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *StartItem = [[UIBarButtonItem alloc] initWithCustomView:StartButt];
-
+        
         NSArray *itemsArray = [NSArray arrayWithObjects:locationItem,flexButton,StartItem,flexButton,InfoItem, nil];
         [toolBar setItems:itemsArray];
-         self.navigationController.navigationBarHidden =YES;
+//        self.navigationController.navigationBarHidden =YES;
+         [self.navigationController setNavigationBarHidden:YES animated:YES];
         [segementOutlet setSelectedSegmentIndex:0];
         NSString *getFirstWordFrom=[[SharedAppDelegate.FromDirection componentsSeparatedByString:@","]objectAtIndex:0];
         NSString *getFirstWordTo=[[SharedAppDelegate.ToDirection componentsSeparatedByString:@","]objectAtIndex:0];
@@ -91,51 +97,59 @@
         FTaddressLabel.text=combine;
         [NavigationActivity setHidden:NO];
         [DirectionActivity setHidden:NO];
-        Topvalue=0;
-        bottomValue=0;
-        //Top View
-        DirectionControlView.hidden=NO;
-        CGRect newFrame = DirectionControlView.frame;
-        if (Topvalue ==  newFrame.size.height)
-        {
-            Topvalue = newFrame.size.height;
-        }
-        else
-        {
-            Topvalue = 0;
-            newFrame.origin.y=0;
-        }
-        newFrame.origin.y += Topvalue;
-        [UIView animateWithDuration:0.5f animations:^{
-            DirectionControlView.frame =newFrame;
-        }];
-        
-       //BottomView
-        [DirectionResultlbl setHidden:YES];
-        [DirectonResultlbl2 setHidden:YES];
-        [Time setHidden:YES];
-        [Distance setHidden:YES];
-        [detailsOutlet setHidden:YES];
-        [DirectionIndImg setHidden:YES];
-        [IdeaButt setHidden:YES];
-        DirectionResultView.hidden=NO;
-        CGRect newBottomFrame = DirectionResultView.frame;
-        if (bottomValue == newBottomFrame.size.height)
-        {
-            bottomValue =newBottomFrame.size.height;
-        }
-        else
-        {
-            bottomValue =0;
-            newBottomFrame.origin.y=446;
-        }
-        newBottomFrame.origin.y -= bottomValue;
-        [UIView animateWithDuration:0.5f animations:^{
-            DirectionResultView.frame =newBottomFrame;
-        }];
+        [self performSelector:@selector(showsubview) withObject:nil afterDelay:0.0f];
         [self performSelector:@selector(findDirectionFromAppleServer) withObject:nil afterDelay:0.1f];
+    }
 }
+-(void)showsubview
+{
+    Topvalue=0;
+    bottomValue=0;
+    //Top View
+    DirectionControlView.hidden=NO;
+    CGRect newFrame = DirectionControlView.frame;
+    if (Topvalue ==  newFrame.size.height)
+    {
+        Topvalue = newFrame.size.height;
+    }
+    else
+    {
+        Topvalue = 0;
+        newFrame.origin.y=0;
+    }
+    newFrame.origin.y += Topvalue;
+    NSLog(@"%f",newFrame.origin.x);
+    NSLog(@"%f",newFrame.origin.y);
+    NSLog(@"%f",newFrame.size.width);
+    NSLog(@"%f",newFrame.size.height);
+    [UIView animateWithDuration:0.5f animations:^{
+        DirectionControlView.frame =newFrame;
+    }];
     
+    //BottomView
+    [DirectionResultlbl setHidden:YES];
+    [DirectonResultlbl2 setHidden:YES];
+    [Time setHidden:YES];
+    [Distance setHidden:YES];
+    [detailsOutlet setHidden:YES];
+    [DirectionIndImg setHidden:YES];
+    [IdeaButt setHidden:YES];
+    DirectionResultView.hidden=NO;
+    CGRect newBottomFrame = DirectionResultView.frame;
+    if (bottomValue == newBottomFrame.size.height)
+    {
+        bottomValue =newBottomFrame.size.height;
+    }
+    else
+    {
+        bottomValue =0;
+        newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height;
+    }
+    newBottomFrame.origin.y -= bottomValue;
+    [UIView animateWithDuration:0.5f animations:^{
+        DirectionResultView.frame =newBottomFrame;
+    }];
+  
 }
 -(void)originalNavigation
 {
@@ -245,7 +259,9 @@
         DirectionResultView.frame=BottomFrame;
     }];
     bottomValue= BottomFrame.size.height;
-    self.navigationController.navigationBarHidden =NO;
+    
+//    self.navigationController.navigationBarHidden =NO;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self originalNavigation];
     [mapview removeAnnotations:[mapview annotations]];
     [mapview removeOverlays:mapview.overlays];
@@ -276,6 +292,11 @@
     {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Directions" message:@"Sorry ,your currnt location is not avilable .pls 'Debug Your Location' and Try Again." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
+        UIStoryboard *story=[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        DirectionView *view=[story instantiateViewControllerWithIdentifier:@"DirectionView"];
+        UINavigationController *navigationController =
+        [[UINavigationController alloc] initWithRootViewController:view];
+        [self presentViewController:navigationController animated:YES completion:nil];
     }
 }
 
@@ -297,7 +318,8 @@
         DirectionResultView.frame=BottomFrame;
     }];
     bottomValue= BottomFrame.size.height;
-    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(243/255.0f) green:(243/255.0f)  blue:(243/255.0f)  alpha:50];
     self.navigationItem.titleView = nil;
     UIButton *EndButt = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -385,6 +407,7 @@
         else
         {
             infoValue =0;
+            newinfoFrame.origin.y = toolBar.frame.origin.y-InfoView.frame.size.height;
         }
         newinfoFrame.origin.y -= infoValue;
         [UIView animateWithDuration:0.5f animations:^{
@@ -413,7 +436,7 @@
             else
             {
                 bottomValue =0;
-                newBottomFrame.origin.y=446;
+                newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height;
             }
             newBottomFrame.origin.y -= bottomValue;
             [UIView animateWithDuration:0.5f animations:^{
@@ -457,7 +480,8 @@
     zoomRect = MKMapRectInset(zoomRect, -3000, -3000);
     [mapview setVisibleMapRect:zoomRect animated:YES];
     
-    self.navigationController.navigationBarHidden =YES;
+//    self.navigationController.navigationBarHidden =YES;
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     CGRect CollFrame = CollectionControlView.frame;
     CollFrame.origin.y -=  CollFrame.size.height;
     [UIView animateWithDuration:0.5f animations:^{
@@ -490,7 +514,7 @@
     else
     {
         bottomValue =0;
-        newBottomFrame.origin.y=446;
+        newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height;
     }
     newBottomFrame.origin.y -= bottomValue;
     [UIView animateWithDuration:0.5f animations:^{
@@ -993,7 +1017,7 @@
             break;
     }
     CGRect InfoFrame = InfoView.frame;
-    InfoFrame.origin.y +=  InfoFrame.size.height;
+    InfoFrame.origin.y += InfoFrame.size.height;
     [UIView animateWithDuration:0.5f animations:^{
         InfoView.frame=InfoFrame;
     }];
@@ -1010,7 +1034,7 @@
         else
         {
             bottomValue =0;
-            newBottomFrame.origin.y=446;
+            newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height;
         }
         newBottomFrame.origin.y -= bottomValue;
         [UIView animateWithDuration:0.5f animations:^{

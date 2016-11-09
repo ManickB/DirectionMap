@@ -47,13 +47,13 @@
                     <navigationItem key="navigationItem" title="MapDirections" id="kMs-G8-Ihn"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <segue destination="Spa-qm-Kpp" kind="push" identifier="Direction" id="6yx-Ce-T0g"/>
                         <segue destination="g6I-sf-okz" kind="push" identifier="flyover" id="hwd-le-ofH"/>
+                        <segue destination="wtf-nd-r8d" kind="push" identifier="Direction" id="ncO-V7-mjL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBt-I2-6pF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="843" y="-1092"/>
+            <point key="canvasLocation" x="601" y="-1166"/>
         </scene>
         <!--Directions-->
         <scene sceneID="rHH-m5-tvX">
@@ -90,7 +90,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="j23-HQ-yvB">
-                                <rect key="frame" x="106" y="94" width="206" height="30"/>
+                                <rect key="frame" x="106" y="95" width="206" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
@@ -101,7 +101,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" id="qlk-kV-gYF">
-                                <rect key="frame" x="106" y="142" width="206" height="30"/>
+                                <rect key="frame" x="106" y="144" width="206" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
@@ -233,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7Y-L4-ENm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921.5999999999999" y="-1086.7733333333333"/>
+            <point key="canvasLocation" x="1393" y="-322"/>
         </scene>
         <!--Details-->
         <scene sceneID="EXW-1F-XW9">
@@ -282,7 +282,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AoS-na-a2v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2429.3333333333335" y="-1034.7066666666667"/>
+            <point key="canvasLocation" x="1538.6666666666667" y="-1099.0799999999999"/>
         </scene>
         <!--Fly Over View-->
         <scene sceneID="ddS-R6-nzl">
@@ -310,46 +310,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="16S-Ae-qPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996.26666666666665" y="-2053.3200000000002"/>
+            <point key="canvasLocation" x="1319" y="-1944"/>
         </scene>
         <!--Map Kit View-->
-        <scene sceneID="dZs-8f-5Y1">
+        <scene sceneID="ZYa-OK-dKb">
             <objects>
-                <viewController storyboardIdentifier="MapKitView" id="Spa-qm-Kpp" customClass="MapKitView" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ADI-re-d9P">
+                <viewController storyboardIdentifier="MapKitView" id="wtf-nd-r8d" customClass="MapKitView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2ld-ov-2cd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="cWm-TX-EbI">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="oHH-fN-uHj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <outlet property="delegate" destination="Spa-qm-Kpp" id="emW-2m-JQY"/>
+                                    <outlet property="delegate" destination="wtf-nd-r8d" id="cCe-Jo-MsF"/>
                                 </connections>
                             </mapView>
-                            <view contentMode="scaleToFill" id="Kld-LG-FEM">
+                            <view contentMode="scaleToFill" id="Qz9-aq-Bxs">
                                 <rect key="frame" x="0.0" y="64" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="GPU-tY-Oec">
-                                        <rect key="frame" x="0.0" y="1" width="320" height="77"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="YiE-QH-9s5">
+                                        <rect key="frame" x="0.0" y="1" width="320" height="74"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="KTa-Az-i5z">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="QuT-ru-NIN">
                                             <size key="itemSize" width="320" height="77"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DirectionCollectionCell" id="skY-rB-h0h" customClass="DirectionCollectionCell">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DirectionCollectionCell" id="vfR-M1-wj1" customClass="DirectionCollectionCell">
+                                                <rect key="frame" x="0.0" y="-2" width="320" height="77"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fwX-OR-jQ9">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JTR-ap-IRN">
                                                             <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
@@ -361,16 +361,12 @@
                                                 </view>
                                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <connections>
-                                                    <outlet property="AddressLbl" destination="fwX-OR-jQ9" id="jA5-dF-PYg"/>
+                                                    <outlet property="AddressLbl" destination="JTR-ap-IRN" id="Oib-5X-lK2"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
-                                        <connections>
-                                            <outlet property="dataSource" destination="Spa-qm-Kpp" id="a2K-Rn-cfa"/>
-                                            <outlet property="delegate" destination="Spa-qm-Kpp" id="gDp-I1-V9G"/>
-                                        </connections>
                                     </collectionView>
-                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="1J0-B8-QEp">
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="xdH-1N-i2h">
                                         <rect key="frame" x="0.0" y="83" width="320" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -379,11 +375,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" id="XAw-rD-3Lb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+                            <view contentMode="scaleToFill" id="wsv-QV-3FZ">
+                                <rect key="frame" x="0.0" y="61" width="320" height="108"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="6ZJ-s5-8Cf">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="LgH-2L-Ktx">
                                         <rect key="frame" x="37" y="69" width="250" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <segments>
@@ -393,10 +389,10 @@
                                         </segments>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="DirectionControl:" destination="Spa-qm-Kpp" eventType="valueChanged" id="HRl-4j-jpB"/>
+                                            <action selector="DirectionControl:" destination="wtf-nd-r8d" eventType="touchUpInside" id="xmK-s6-ptZ"/>
                                         </connections>
                                     </segmentedControl>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KAV-3M-KAF">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="JRE-NL-L2F">
                                         <rect key="frame" x="8" y="20" width="59" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
@@ -404,96 +400,96 @@
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="clearBUtt:" destination="Spa-qm-Kpp" eventType="touchUpInside" id="KjL-lx-QXO"/>
+                                            <action selector="clearBUtt:" destination="wtf-nd-r8d" eventType="touchUpInside" id="ugH-yq-5Dg"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q04-EX-FpV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yq2-0m-T5m">
                                         <rect key="frame" x="75" y="16" width="175" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" id="PIA-0R-ubH">
-                                        <rect key="frame" x="278" y="27" width="20" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Q0B-xa-0su">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ah6-dB-gFI">
                                         <rect key="frame" x="75" y="16" width="175" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="BacktoDirection:" destination="Spa-qm-Kpp" eventType="touchUpInside" id="D49-gr-ADC"/>
+                                            <action selector="BacktoDirection:" destination="wtf-nd-r8d" eventType="touchUpInside" id="77d-hO-s0c"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" id="zSR-hx-6gV">
+                                        <rect key="frame" x="278" y="27" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" id="o5m-uF-0Kj">
-                                <rect key="frame" x="0.0" y="446" width="320" height="77"/>
+                            <view contentMode="scaleToFill" id="dIm-zI-mj2">
+                                <rect key="frame" x="0.0" y="444" width="320" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions Not Avilable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W2L-6i-fHf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions Not Avilable" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tsy-9w-nsd">
                                         <rect key="frame" x="15" y="10" width="289" height="19"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A route could not be determined between these location." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2tp-z5-aFD">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A route could not be determined between these location." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uzM-Kg-S0q">
                                         <rect key="frame" x="16" y="37" width="304" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="l9O-yF-BmU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sL4-nB-8xK">
                                         <rect key="frame" x="45" y="8" width="194" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SEz-24-F9O">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="C8h-Ev-la5">
                                         <rect key="frame" x="7" y="35" width="311" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" id="mMS-1v-zUE">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" id="aQa-s1-u4W">
                                         <rect key="frame" x="147" y="29" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="TBg-h9-SC0">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="erE-gc-OAe">
                                         <rect key="frame" x="10" y="11" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="a3G-6G-4nZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Tjl-Nq-lki">
                                         <rect key="frame" x="282" y="7" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="Edison.png"/>
                                         <connections>
-                                            <action selector="ActionOFIdea:" destination="Spa-qm-Kpp" eventType="touchUpInside" id="pto-Ds-lm6"/>
+                                            <action selector="ActionOFIdea:" destination="wtf-nd-r8d" eventType="touchUpInside" id="S8s-Wl-Ha0"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XDt-gH-bcj">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GEv-pC-Ivk">
                                         <rect key="frame" x="246" y="8" width="68" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Details">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="DetailsButt:" destination="Spa-qm-Kpp" eventType="touchUpInside" id="7xR-RB-wQD"/>
+                                            <action selector="DetailsButt:" destination="wtf-nd-r8d" eventType="touchUpInside" id="Ag7-6d-WhM"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="CDL-Sc-pIz">
-                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
+                            <view contentMode="scaleToFill" id="Qes-I8-RaV">
+                                <rect key="frame" x="0.0" y="477" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Hj2-dy-1ep">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="RHb-fa-KW6">
                                         <rect key="frame" x="8" y="8" width="298" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <segments>
@@ -503,48 +499,51 @@
                                         </segments>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <action selector="MapTypeControlButt:" destination="Spa-qm-Kpp" eventType="valueChanged" id="e4j-Dq-5wc"/>
+                                            <action selector="MapTypeControlButt:" destination="wtf-nd-r8d" eventType="valueChanged" id="hBo-WW-9qo"/>
                                         </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="L6X-aR-zRh">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="agH-Gf-pfy">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <items/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="7fw-x3-6IF"/>
+                    <navigationItem key="navigationItem" id="otG-1L-oWn"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="AddCollectionView" destination="GPU-tY-Oec" id="APE-LY-pYV"/>
-                        <outlet property="CollectionControlView" destination="Kld-LG-FEM" id="B38-kQ-gLk"/>
-                        <outlet property="DirectionActivity" destination="mMS-1v-zUE" id="VAP-Li-ESE"/>
-                        <outlet property="DirectionControlView" destination="XAw-rD-3Lb" id="Eag-y0-PbU"/>
-                        <outlet property="DirectionIndImg" destination="TBg-h9-SC0" id="GMT-LX-WYR"/>
-                        <outlet property="DirectionResultView" destination="o5m-uF-0Kj" id="n9A-iQ-KbB"/>
-                        <outlet property="DirectionResultlbl" destination="W2L-6i-fHf" id="zG5-95-TkD"/>
-                        <outlet property="DirectonResultlbl2" destination="2tp-z5-aFD" id="zc5-Xl-iBr"/>
-                        <outlet property="Distance" destination="SEz-24-F9O" id="eTw-6Q-5d5"/>
-                        <outlet property="FTaddressLabel" destination="Q04-EX-FpV" id="DgF-W1-adD"/>
-                        <outlet property="IdeaButt" destination="a3G-6G-4nZ" id="M43-Hm-i4s"/>
-                        <outlet property="InfoView" destination="CDL-Sc-pIz" id="Yck-rn-dSD"/>
-                        <outlet property="NavigationActivity" destination="PIA-0R-ubH" id="p4R-XA-DDC"/>
-                        <outlet property="Time" destination="l9O-yF-BmU" id="eK5-gg-iB6"/>
-                        <outlet property="detailsOutlet" destination="XDt-gH-bcj" id="GWa-Vk-11g"/>
-                        <outlet property="mapview" destination="cWm-TX-EbI" id="q1s-qH-SX9"/>
-                        <outlet property="pageCtrl" destination="1J0-B8-QEp" id="q6m-ac-9uW"/>
-                        <outlet property="segementOutlet" destination="6ZJ-s5-8Cf" id="tMj-qZ-MVm"/>
-                        <outlet property="toolBar" destination="L6X-aR-zRh" id="3Fs-K8-O18"/>
-                        <segue destination="0TN-4a-yxe" kind="push" id="D9x-1Q-LgI"/>
-                        <segue destination="VnL-gl-yKv" kind="push" id="nc3-NR-NAT"/>
+                        <outlet property="AddCollectionView" destination="YiE-QH-9s5" id="yLg-Y8-hCh"/>
+                        <outlet property="CollectionControlView" destination="Qz9-aq-Bxs" id="QSd-H4-SQD"/>
+                        <outlet property="DirectionActivity" destination="aQa-s1-u4W" id="e4f-H8-UqP"/>
+                        <outlet property="DirectionControlView" destination="wsv-QV-3FZ" id="Gje-eg-Soe"/>
+                        <outlet property="DirectionIndImg" destination="erE-gc-OAe" id="iHS-WH-vel"/>
+                        <outlet property="DirectionResultView" destination="dIm-zI-mj2" id="olj-R9-Hq6"/>
+                        <outlet property="DirectionResultlbl" destination="Tsy-9w-nsd" id="Kvm-yR-3YV"/>
+                        <outlet property="DirectonResultlbl2" destination="uzM-Kg-S0q" id="9ka-Nh-Cho"/>
+                        <outlet property="Distance" destination="C8h-Ev-la5" id="xWJ-Uw-YMb"/>
+                        <outlet property="FTaddressLabel" destination="Yq2-0m-T5m" id="xIn-YC-I1K"/>
+                        <outlet property="IdeaButt" destination="Tjl-Nq-lki" id="Z9z-Zf-Vm4"/>
+                        <outlet property="InfoView" destination="Qes-I8-RaV" id="9fy-8J-8Lt"/>
+                        <outlet property="NavigationActivity" destination="zSR-hx-6gV" id="34o-1U-Npp"/>
+                        <outlet property="Time" destination="sL4-nB-8xK" id="uyu-d2-r6v"/>
+                        <outlet property="detailsOutlet" destination="GEv-pC-Ivk" id="jnt-Rs-QUM"/>
+                        <outlet property="mapview" destination="oHH-fN-uHj" id="e97-dQ-mhB"/>
+                        <outlet property="pageCtrl" destination="xdH-1N-i2h" id="OIC-nZ-ctU"/>
+                        <outlet property="segementOutlet" destination="LgH-2L-Ktx" id="efh-KC-tmH"/>
+                        <outlet property="toolBar" destination="agH-Gf-pfy" id="wLH-PG-vo4"/>
+                        <segue destination="0TN-4a-yxe" kind="push" id="MGU-TL-lMh"/>
+                        <segue destination="VnL-gl-yKv" kind="push" id="E7t-j0-tOZ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fH6-nR-MAM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4m2-Vx-MOi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1338.1333333333332" y="-1110.4400000000001"/>
+            <point key="canvasLocation" x="1014" y="-1160"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="4mf-EX-cAV">
@@ -605,7 +604,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mT-3T-z9P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1263.4666666666667" y="-479.95999999999998"/>
+            <point key="canvasLocation" x="1198.9333333333334" y="-353.10666666666668"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rK2-JS-jS1">
@@ -624,7 +623,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uIZ-MT-IY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440" y="-1091.5066666666667"/>
+            <point key="canvasLocation" x="324" y="-1212"/>
         </scene>
     </scenes>
     <resources>

@@ -299,9 +299,16 @@
     request.region = _mapView.region;
     MKLocalSearch *search = [[MKLocalSearch alloc] initWithRequest:request];
     [search startWithCompletionHandler:^(MKLocalSearchResponse *response, NSError *error) {
-        NSLog(@"%@",response.mapItems);
+        if (response == nil)
+        {
+            NSLog(@"%@",response.mapItems);
+            NSLog(@"%@",error);
+        }
+        else
+        {
         self.matchingItems = response.mapItems;
         [self.SearchLocationTable reloadData];
+        }
     }];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
