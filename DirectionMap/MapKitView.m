@@ -33,7 +33,8 @@
     [InfoView setHidden:YES];
     DirectionControlView.hidden=YES;
     DirectionResultView.hidden=YES;
-    self.navigationController.navigationBarHidden = NO;
+    toolBar.hidden=YES;
+    self.navigationController.navigationBarHidden = YES;
     [self performSelector:@selector(aftercall) withObject:nil afterDelay:0.0f];
 }
 -(void)aftercall
@@ -57,6 +58,7 @@
     }
     else if (SharedAppDelegate.FromDirection.length != 0)
     {
+        toolBar.hidden=NO;
         mapview.delegate=self;
         [mapview removeAnnotations:[mapview annotations]];
         [mapview removeOverlays:mapview.overlays];
@@ -149,10 +151,12 @@
 }
 -(void)originalNavigation
 {
+    self.navigationController.navigationBarHidden = NO;
+    toolBar.hidden=NO;
     mapview.delegate=self;
     [mapview removeAnnotations:[mapview annotations]];
     [mapview removeOverlays:mapview.overlays];
-    toolBar.barTintColor=[UIColor colorWithRed:(243/255.0f) green:(243/255.0f) blue:(243/255.0f) alpha:100];
+//    toolBar.barTintColor=[UIColor colorWithRed:(243/255.0f) green:(243/255.0f) blue:(243/255.0f) alpha:100];
     toolBar.translucent=NO;
     UIButton *btnName = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnName setFrame:CGRectMake(16, 7, 30, 30)];
@@ -169,7 +173,7 @@
     [toolBar setItems:itemsArray];
     self.navigationController.navigationBar.translucent = YES;
     //    self.navigationController.navigationBar.backgroundColor = [UIColor lightGrayColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(243/255.0f) green:(243/255.0f)  blue:(243/255.0f)  alpha:50];
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(243/255.0f) green:(243/255.0f)  blue:(243/255.0f)  alpha:50];
     UIButton *BAckButt = [UIButton buttonWithType:UIButtonTypeCustom];
     [BAckButt setBackgroundImage:[UIImage imageNamed:@"Direction.png"] forState:UIControlStateNormal];
     [BAckButt.layer setMasksToBounds:YES];
@@ -185,16 +189,6 @@
     [RightButt addTarget:self action:@selector(RightButt:) forControlEvents:UIControlEventTouchUpInside];
     RightBarButtItem = [[UIBarButtonItem alloc] initWithCustomView:RightButt];
     [self.navigationItem setRightBarButtonItem:RightBarButtItem];
-    
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
-    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [locationManager requestWhenInUseAuthorization];
-    }
-    [locationManager startUpdatingLocation];
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     LocationSearchTable *locationSearch = [storyboard instantiateViewControllerWithIdentifier:@"LocationSearchTable"];
     resultSearchController = [[UISearchController alloc] initWithSearchResultsController:locationSearch];
@@ -209,6 +203,14 @@
     self.definesPresentationContext = YES;
     locationSearch.mapView = mapview;
     locationSearch.handleMapSearchDelegate = self;
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [locationManager requestWhenInUseAuthorization];
+    }
+    [locationManager startUpdatingLocation];
 }
 #pragma mark - UINavigationBar Actions
 - (void)willPresentSearchController:(UISearchController *)searchController
@@ -240,7 +242,7 @@
 }
 
 - (IBAction)clearBUtt:(id)sender {
-    
+    checkStartInfo=YES;
     //TopView
     CGRect newFrame = DirectionControlView.frame;
     newFrame.origin.y -=  newFrame.size.height;
