@@ -29,24 +29,21 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-//    self.navigationController.navigationBarHidden = NO;
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    [CollectionControlView setHidden:YES];
+    [InfoView setHidden:YES];
+    DirectionControlView.hidden=YES;
+    DirectionResultView.hidden=YES;
+    self.navigationController.navigationBarHidden = NO;
     [self performSelector:@selector(aftercall) withObject:nil afterDelay:0.0f];
 }
 -(void)aftercall
 {
     [StartButt setEnabled:NO];
-    [CollectionControlView setHidden:YES];
-    [InfoView setHidden:YES];
     InfoView.layer.cornerRadius=5.0f;
-    InfoView.layer.masksToBounds=YES;
     DirectionResultView.layer.cornerRadius=7.0f;
-    DirectionControlView.hidden=YES;
-    DirectionResultView.hidden=YES;
     detailsOutlet.layer.borderColor=[UIColor whiteColor].CGColor;
     detailsOutlet.layer.borderWidth=2.0f;
     detailsOutlet.layer.masksToBounds=YES;
-    //    self.navigationController.navigationBar.hidden = NO;
     if (SharedAppDelegate.FromDirection.length == 0)
     {
         if (SharedAppDelegate.CheckStreetDirection.length == 0)
@@ -86,8 +83,7 @@
         
         NSArray *itemsArray = [NSArray arrayWithObjects:locationItem,flexButton,StartItem,flexButton,InfoItem, nil];
         [toolBar setItems:itemsArray];
-//        self.navigationController.navigationBarHidden =YES;
-         [self.navigationController setNavigationBarHidden:YES animated:YES];
+        self.navigationController.navigationBarHidden =YES;
         [segementOutlet setSelectedSegmentIndex:0];
         NSString *getFirstWordFrom=[[SharedAppDelegate.FromDirection componentsSeparatedByString:@","]objectAtIndex:0];
         NSString *getFirstWordTo=[[SharedAppDelegate.ToDirection componentsSeparatedByString:@","]objectAtIndex:0];
@@ -143,7 +139,7 @@
     else
     {
         bottomValue =0;
-        newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height;
+        newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height-2;
     }
     newBottomFrame.origin.y -= bottomValue;
     [UIView animateWithDuration:0.5f animations:^{
@@ -260,8 +256,7 @@
     }];
     bottomValue= BottomFrame.size.height;
     
-//    self.navigationController.navigationBarHidden =NO;
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.navigationController.navigationBarHidden =NO;
     [self originalNavigation];
     [mapview removeAnnotations:[mapview annotations]];
     [mapview removeOverlays:mapview.overlays];
@@ -303,6 +298,13 @@
 #pragma mark - UIToolBar Actions
 -(void)StartButt:(UIButton*)sender
 {
+    checkStartInfo=YES;
+    CGRect InfoFrame = InfoView.frame;
+    InfoFrame.origin.y +=  InfoFrame.size.height;
+    [UIView animateWithDuration:0.5f animations:^{
+        InfoView.frame=InfoFrame;
+    }];
+    infoValue= InfoFrame.size.height;
     DirectionINdication=[NSString stringWithFormat:@"%@",getOverlineColor];
     //TopView
     CGRect newFrame = DirectionControlView.frame;
@@ -382,7 +384,9 @@
 }
 - (void)InfoButt:(UIButton *)sender
 {
-    if ([DirectionResultView isHidden]==NO)
+    if (checkStartInfo == NO)
+    {
+    if ([DirectionResultView isHidden] == NO)
     {
         if(checkVisible == NO)
         {
@@ -407,7 +411,7 @@
         else
         {
             infoValue =0;
-            newinfoFrame.origin.y = toolBar.frame.origin.y-InfoView.frame.size.height;
+            newinfoFrame.origin.y = toolBar.frame.origin.y-InfoView.frame.size.height-2;
         }
         newinfoFrame.origin.y -= infoValue;
         [UIView animateWithDuration:0.5f animations:^{
@@ -436,7 +440,7 @@
             else
             {
                 bottomValue =0;
-                newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height;
+                newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height-2;
             }
             newBottomFrame.origin.y -= bottomValue;
             [UIView animateWithDuration:0.5f animations:^{
@@ -445,10 +449,32 @@
             checkVisible=NO;
         }
     }
+    }
+    else if(checkStartInfo == YES)
+    {
+        InfoView.hidden=NO;
+        CGRect newinfoFrame = InfoView.frame;
+        if (infoValue == newinfoFrame.size.height)
+        {
+            infoValue =newinfoFrame.size.height;
+        }
+        else
+        {
+            infoValue =0;
+            newinfoFrame.origin.y = toolBar.frame.origin.y-InfoView.frame.size.height-2;
+        }
+        newinfoFrame.origin.y -= infoValue;
+        [UIView animateWithDuration:0.5f animations:^{
+            InfoView.frame =newinfoFrame;
+        }];
+
+    }
 }
 
 -(void)OverView:(UIButton *)sender
 {
+    CheckINFo=NO;
+    checkVisible=NO;
     getOverlineColor=[NSString stringWithFormat:@"%@",DirectionINdication];
     [mapview addOverlay:route.polyline];
     MKMapRect zoomRect = MKMapRectNull;
@@ -467,6 +493,7 @@
 }
 -(void)endbutt:(UIButton *)sender
 {
+    checkStartInfo=NO;
     getOverlineColor=[NSString stringWithFormat:@"%@",DirectionINdication];
     [mapview addOverlay:route.polyline];
     MKMapRect zoomRect = MKMapRectNull;
@@ -479,9 +506,7 @@
         }
     zoomRect = MKMapRectInset(zoomRect, -3000, -3000);
     [mapview setVisibleMapRect:zoomRect animated:YES];
-    
-//    self.navigationController.navigationBarHidden =YES;
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
+      self.navigationController.navigationBarHidden =YES;
     CGRect CollFrame = CollectionControlView.frame;
     CollFrame.origin.y -=  CollFrame.size.height;
     [UIView animateWithDuration:0.5f animations:^{
@@ -498,6 +523,7 @@
     else
     {
         Topvalue = 0;
+        newFrame.origin.y=0;
     }
     newFrame.origin.y += Topvalue;
     [UIView animateWithDuration:0.5f animations:^{
@@ -514,7 +540,7 @@
     else
     {
         bottomValue =0;
-        newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height;
+        newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height-2;
     }
     newBottomFrame.origin.y -= bottomValue;
     [UIView animateWithDuration:0.5f animations:^{
@@ -1003,6 +1029,30 @@
 #pragma mark - Map Type
 - (IBAction)MapTypeControlButt:(UISegmentedControl *)sender
 {
+    if (checkStartInfo == YES)
+    {
+        switch (sender.selectedSegmentIndex) {
+            case 0:
+                [mapview setMapType:MKMapTypeStandard];
+                break;
+            case 1:
+                [mapview setMapType:MKMapTypeHybrid];
+                break;
+            case 2:
+                [mapview setMapType:MKMapTypeSatellite];
+                break;
+            default:
+                break;
+        }
+        CGRect InfoFrame = InfoView.frame;
+        InfoFrame.origin.y += InfoFrame.size.height;
+        [UIView animateWithDuration:0.5f animations:^{
+            InfoView.frame=InfoFrame;
+        }];
+        infoValue= InfoFrame.size.height;
+    }
+    else if(checkStartInfo == NO)
+    {
     switch (sender.selectedSegmentIndex) {
         case 0:
             [mapview setMapType:MKMapTypeStandard];
@@ -1034,13 +1084,14 @@
         else
         {
             bottomValue =0;
-            newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height;
+            newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height-2;
         }
         newBottomFrame.origin.y -= bottomValue;
         [UIView animateWithDuration:0.5f animations:^{
             DirectionResultView.frame =newBottomFrame;
         }];
         checkVisible=NO;
+    }
     }
 }
 

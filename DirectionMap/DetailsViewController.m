@@ -80,6 +80,10 @@
     view.AddressStep=[getInstructionArr objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:view animated:YES];
 }
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return UITableViewAutomaticDimension;
+//}
 - (IBAction)backButt:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];

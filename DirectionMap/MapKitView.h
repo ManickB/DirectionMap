@@ -31,6 +31,7 @@
     BOOL annotationPin;
     BOOL CheckINFo;
     BOOL checkVisible;
+    BOOL checkStartInfo;
     MKRoute *route;
     UIButton *StartButt;
     NSString *sourceTitle;
