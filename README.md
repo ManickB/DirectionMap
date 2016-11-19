@@ -28,4 +28,4 @@ This functionality used to get a map Type control . i mean Standard , hybrid & S
 
  see that before line (Search Location).if you get the location on the map ,show the 3D icon in tool bar.then click the 3D icon that action is navigate to another page then open the flyover using on Satellite position in your Location.This 3d view is the Default MkMapCamera functionality .it is used to pitch , coordinate & distance to show the map.then if you click the Right Button to show the uiaction Sheet to map type(Statellite , hybrid)Fly over technique.
  
- If you have a any doubt pls pin about my mail .<manickamtesting16@gmail.com>
+ If you have a any doubt pls pin about my mail .**manickamtesting16@gmail.com**
