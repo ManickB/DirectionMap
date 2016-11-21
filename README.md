@@ -1,4 +1,4 @@
-# MDirectionMap
+# DirectionMap
 This application based on direction of map using some advanced concept. i mean google map &amp; 3d view.
 
 ### Don't Forget :
