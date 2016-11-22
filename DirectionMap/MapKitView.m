@@ -25,16 +25,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
     [CollectionControlView setHidden:YES];
     [InfoView setHidden:YES];
     DirectionControlView.hidden=YES;
     DirectionResultView.hidden=YES;
     toolBar.hidden=YES;
     self.navigationController.navigationBarHidden = YES;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
     [self performSelector:@selector(aftercall) withObject:nil afterDelay:0.0f];
 }
 -(void)aftercall
@@ -156,7 +156,7 @@
     mapview.delegate=self;
     [mapview removeAnnotations:[mapview annotations]];
     [mapview removeOverlays:mapview.overlays];
-//    toolBar.barTintColor=[UIColor colorWithRed:(243/255.0f) green:(243/255.0f) blue:(243/255.0f) alpha:100];
+    toolBar.barTintColor=[UIColor colorWithRed:(243/255.0f) green:(243/255.0f) blue:(243/255.0f) alpha:100];
     toolBar.translucent=NO;
     UIButton *btnName = [UIButton buttonWithType:UIButtonTypeCustom];
     [btnName setFrame:CGRectMake(16, 7, 30, 30)];
@@ -172,8 +172,8 @@
     NSArray *itemsArray = [NSArray arrayWithObjects:locationItem, flexButton,InfoItem, nil];
     [toolBar setItems:itemsArray];
     self.navigationController.navigationBar.translucent = YES;
-    //    self.navigationController.navigationBar.backgroundColor = [UIColor lightGrayColor];
-//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(243/255.0f) green:(243/255.0f)  blue:(243/255.0f)  alpha:50];
+        self.navigationController.navigationBar.backgroundColor = [UIColor lightGrayColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(243/255.0f) green:(243/255.0f)  blue:(243/255.0f)  alpha:50];
     UIButton *BAckButt = [UIButton buttonWithType:UIButtonTypeCustom];
     [BAckButt setBackgroundImage:[UIImage imageNamed:@"Direction.png"] forState:UIControlStateNormal];
     [BAckButt.layer setMasksToBounds:YES];
@@ -406,15 +406,15 @@
         //InfoView
         InfoView.hidden=NO;
         CGRect newinfoFrame = InfoView.frame;
-        if (infoValue == newinfoFrame.size.height)
-        {
-            infoValue =newinfoFrame.size.height;
-        }
-        else
-        {
-            infoValue =0;
-            newinfoFrame.origin.y = toolBar.frame.origin.y-InfoView.frame.size.height-2;
-        }
+//        if (infoValue == newinfoFrame.size.height)
+//        {
+//        infoValue = toolBar.frame.size.height+newinfoFrame.size.height;
+//        }
+//        else
+//        {
+            infoValue = 0;
+            newinfoFrame.origin.y = toolBar.frame.origin.y-InfoView.frame.size.height;
+//        }
         newinfoFrame.origin.y -= infoValue;
         [UIView animateWithDuration:0.5f animations:^{
             InfoView.frame =newinfoFrame;
@@ -429,7 +429,7 @@
         [UIView animateWithDuration:0.5f animations:^{
             InfoView.frame=InfoFrame;
         }];
-        infoValue= InfoFrame.size.height;
+        infoValue = InfoFrame.size.height;
         CheckINFo=NO;
         if (checkVisible == YES)
         {
@@ -442,7 +442,7 @@
             else
             {
                 bottomValue =0;
-                newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height-2;
+                newBottomFrame.origin.y=toolBar.frame.origin.y-DirectionResultView.frame.size.height;
             }
             newBottomFrame.origin.y -= bottomValue;
             [UIView animateWithDuration:0.5f animations:^{
@@ -454,22 +454,21 @@
     }
     else if(checkStartInfo == YES)
     {
-        InfoView.hidden=NO;
-        CGRect newinfoFrame = InfoView.frame;
-        if (infoValue == newinfoFrame.size.height)
-        {
-            infoValue =newinfoFrame.size.height;
-        }
-        else
-        {
-            infoValue =0;
-            newinfoFrame.origin.y = toolBar.frame.origin.y-InfoView.frame.size.height-2;
-        }
-        newinfoFrame.origin.y -= infoValue;
-        [UIView animateWithDuration:0.5f animations:^{
-            InfoView.frame =newinfoFrame;
-        }];
-
+            InfoView.hidden=NO;
+            CGRect newinfoFrame = InfoView.frame;
+//            if (infoValue == newinfoFrame.size.height)
+//            {
+//              infoValue = toolBar.frame.size.height+newinfoFrame.size.height;
+//            }
+//            else
+//            {
+                infoValue =0;
+                newinfoFrame.origin.y = toolBar.frame.origin.y-InfoView.frame.size.height;
+//            }
+            newinfoFrame.origin.y -= infoValue;
+            [UIView animateWithDuration:0.5f animations:^{
+                InfoView.frame =newinfoFrame;
+            }];
     }
 }
 

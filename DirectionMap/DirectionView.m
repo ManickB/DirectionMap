@@ -41,6 +41,8 @@
     else
     {
         FromText.text=@"";
+        ToText.text=@"";
+        [CommonCurrLocView setHidden:YES];
     }
     }
     else
